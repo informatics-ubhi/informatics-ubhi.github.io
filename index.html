@@ -2,27 +2,33 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Login Portal Informatika</title>
+<title>Login | Portal Informatika</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- CSS UTAMA -->
 <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
 
-<!-- LOGIN WRAPPER -->
+<!-- AUTO REDIRECT JIKA SUDAH LOGIN -->
+<script>
+if (sessionStorage.getItem("isLoggedIn")) {
+    window.location.href = "home.html";
+}
+</script>
+
 <div class="login-wrapper">
 
     <div class="login-card">
         <h2>🔐 Portal Prodi Informatika</h2>
-        <p>Silakan login untuk masuk</p>
+        <p class="login-subtitle">
+            Silakan login untuk mengakses portal akademik
+        </p>
 
         <form id="loginForm">
             <input 
                 type="text" 
                 id="username" 
-                placeholder="Username" 
+                placeholder="Username"
                 autocomplete="off"
                 required
             >
@@ -30,7 +36,7 @@
             <input 
                 type="password" 
                 id="password" 
-                placeholder="Password" 
+                placeholder="Password"
                 required
             >
 
@@ -41,19 +47,19 @@
 
 </div>
 
-<!-- LOGIN SCRIPT -->
 <script>
 document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
     const user = document.getElementById("username").value.trim();
     const pass = document.getElementById("password").value.trim();
+    const errorMsg = document.getElementById("error-msg");
 
     if (user === "informatika" && pass === "informatika") {
+        sessionStorage.setItem("isLoggedIn", "true");
         window.location.href = "home.html";
     } else {
-        document.getElementById("error-msg").textContent =
-            "Username atau Password salah!";
+        errorMsg.textContent = "❌ Username atau password salah";
     }
 });
 </script>
