@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -10,17 +7,19 @@
 <link rel="stylesheet" href="main.css">
 </head>
 
-    <script>
-if(document.referrer.indexOf("index.html") === -1){
+<body>
+
+<!-- PROTEKSI HALAMAN -->
+<script>
+if (!sessionStorage.getItem("isLoggedIn")) {
     window.location.href = "index.html";
 }
 </script>
-<body>
 
 <!-- NAVBAR -->
 <nav class="navbar">
     <h2>💻 Prodi Informatika</h2>
-    <a href="index.html" class="logout">Logout</a>
+    <button class="logout" onclick="logout()">Logout</button>
 </nav>
 
 <!-- HERO -->
@@ -34,7 +33,9 @@ if(document.referrer.indexOf("index.html") === -1){
     </div>
 
     <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" alt="Informatika">
+        <img 
+        src="https://images.unsplash.com/photo-1581090700227-1e37b190418e"
+        alt="Mahasiswa Informatika">
     </div>
 </section>
 
@@ -81,6 +82,13 @@ if(document.referrer.indexOf("index.html") === -1){
 <footer class="footer">
     © 2026 Program Studi Informatika
 </footer>
+
+<script>
+function logout() {
+    sessionStorage.removeItem("isLoggedIn");
+    window.location.href = "index.html";
+}
+</script>
 
 </body>
 </html>
