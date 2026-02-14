@@ -2,99 +2,36 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Portal Mata Kuliah | Informatika</title>
+<title>Login Portal Informatika</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="main.css">
 </head>
-<body>
+<body class="login-body">
 
-<nav class="navbar">
-    <h2>📘 Informatika</h2>
-</nav>
+<div class="login-container">
+    <h2>🔐 Portal Prodi Informatika</h2>
+    <p>Silakan login untuk masuk</p>
 
-<header class="hero">
-    <h1>Portal Pembelajaran Informatika</h1>
-    <p>Klik mata kuliah untuk melihat daftar pertemuan</p>
-</header>
-
-<main class="container">
-
-    <!-- CARD 1 -->
-    <div class="course">
-        <button class="course-btn">
-            📊 Sempro Informatika
-            <span>+</span>
-        </button>
-
-        <div class="course-content">
-            <div class="meeting-grid">
-                <a href="Kompleksitas/Materi1/Slide 1.html">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">7</a>
-                <a href="#">8</a>
-                <a href="#">9</a>
-                <a href="#">10</a>
-                <a href="#">11</a>
-                <a href="#">12</a>
-                <a href="#">13</a>
-                <a href="#">14</a>
-                <a href="#">15</a>
-                <a href="#">16</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- CARD 2 -->
-    <div class="course">
-        <button class="course-btn">
-            🧪 Dosen Pengampu Informatika
-            <span>+</span>
-        </button>
-
-        <div class="course-content">
-            <div class="meeting-grid">
-                <a href="Pengujian_Perangkat_Lunak/Materi 1/Slide 1.html">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">7</a>
-                <a href="#">8</a>
-                <a href="#">9</a>
-                <a href="#">10</a>
-                <a href="#">11</a>
-                <a href="#">12</a>
-                <a href="#">13</a>
-                <a href="#">14</a>
-                <a href="#">15</a>
-                <a href="#">16</a>
-            </div>
-        </div>
-    </div>
-
-</main>
-
-<footer class="footer">
-    © 2026 Portal Informatika
-</footer>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Masuk</button>
+        <p id="error-msg"></p>
+    </form>
+</div>
 
 <script>
-const buttons = document.querySelectorAll(".course-btn");
+document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
 
-buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const content = btn.nextElementSibling;
-        content.classList.toggle("active");
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
 
-        btn.classList.toggle("open");
-        btn.querySelector("span").textContent =
-            content.classList.contains("active") ? "−" : "+";
-    });
+    if(user === "informatika" && pass === "informatika"){
+        window.location.href = "home.html";
+    } else {
+        document.getElementById("error-msg").textContent = "Username atau Password salah!";
+    }
 });
 </script>
 
