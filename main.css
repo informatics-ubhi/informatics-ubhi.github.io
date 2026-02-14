@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    color: white;
+}
+
+/* NAVBAR */
+.navbar {
+    padding: 20px 30px;
+    background: rgba(0,0,0,0.2);
+    backdrop-filter: blur(8px);
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 2.3rem;
+}
+
+.hero p {
+    margin-top: 10px;
+    opacity: 0.85;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* COURSE CARD */
+.course {
+    margin-bottom: 20px;
+}
+
+.course-btn {
+    width: 100%;
+    padding: 18px 20px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.course-btn:hover {
+    transform: translateY(-3px);
+}
+
+.course-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.course-content.active {
+    max-height: 500px;
+    margin-top: 12px;
+}
+
+/* GRID MATERI */
+.meeting-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 12px;
+}
+
+.meeting-grid a {
+    background: rgba(255,255,255,0.15);
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+.meeting-grid a:hover {
+    background: linear-gradient(135deg, #22d3ee, #3b82f6);
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 25px;
+    opacity: 0.7;
+}
